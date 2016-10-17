@@ -1,4 +1,5 @@
 import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const config = {
   entry: {
@@ -15,7 +16,16 @@ const config = {
         loaders: ['babel'],
         exclude: /(node_modules|bower_components)/,
       },
+      {
+        test: /.pug$/,
+        loaders: ['pug'],
+      }
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'pug/index.pug',
+    })
+  ],
 };
 export default config;
