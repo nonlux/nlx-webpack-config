@@ -7,6 +7,15 @@ const config = {
   output: {
     filename: '[name].js',
     path: path.join(__dirname, 'build'),
-  }
+  },
+  module: {
+    loaders: [
+      {
+        test: /.js$/,
+        loaders: ['babel'],
+        exclude: /(node_modules|bower_components)/,
+      },
+    ],
+  },
 };
 export default config;

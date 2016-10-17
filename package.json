@@ -19,6 +19,7 @@
     "nlx-eslint-config": "0.0.1"
   },
   "dependencies": {
+    "babel-loader": "^6.2.5",
     "pug-loader": "^2.3.0",
     "webpack": "^1.13.2"
   }

@@ -1,1 +1,2 @@
-console.log('Hellow World!');
+import a from './a';
+a();
