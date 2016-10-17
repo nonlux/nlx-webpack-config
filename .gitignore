@@ -1,0 +1,12 @@
+*~
+*\#*
+\#*
+*.log
+
+node_modules/*
+
+.babelrc
+
+
+.eslintrc.js
+

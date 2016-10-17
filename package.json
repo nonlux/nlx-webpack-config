@@ -1,0 +1,25 @@
+{
+  "license": "MIT",
+  "author": "nonlux <nonluxi@gmail.com>",
+  "scripts": {
+    "postinstall": "./npm-post.sh"
+  },
+  "name": "nlx-webpack-config",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nonlux/nlx-webpack-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nonlux/nlx-webpack-config/issues"
+  },
+  "homepage": "https://github.com/nonlux/nlx-webpack-config",
+  "devDependencies": {
+    "nlx-babel-config": "0.0.1",
+    "nlx-eslint-config": "0.0.1"
+  },
+  "dependencies": {
+    "pug-loader": "^2.3.0",
+    "webpack": "^1.13.2"
+  }
+}
