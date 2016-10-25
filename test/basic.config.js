@@ -25,7 +25,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'pug/index.pug',
-    })
+    }),
   ],
 };
 export default config;
