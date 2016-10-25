@@ -2,8 +2,9 @@
   "license": "MIT",
   "author": "nonlux <nonluxi@gmail.com>",
   "scripts": {
-      "postinstall": "./npm-post.sh",
-      "webpack": "webpack"
+    "postinstall": "",
+    "webpack": "webpack",
+    "ncu": "ncu"
   },
   "name": "nlx-webpack-config",
   "main": "webpack.config.js",
@@ -17,8 +18,9 @@
   },
   "homepage": "https://github.com/nonlux/nlx-webpack-config",
   "devDependencies": {
-    "nlx-babel-config": "0.0.1",
-    "nlx-eslint-config": "0.0.1"
+    "nlx-babel-config": "0.0.2",
+    "nlx-eslint-config": "0.0.2",
+    "npm-check-updates": "^2.8.6"
   },
   "dependencies": {
     "babel-loader": "^6.2.5",

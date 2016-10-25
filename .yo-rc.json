@@ -6,6 +6,7 @@
     "projectType": "javascript",
     "shortName": "wpc",
     "isBabel": true,
-    "isEslint": true
+    "isEslint": true,
+    "isWebpack": false
   }
 }
