@@ -6,6 +6,7 @@
       "webpack": "webpack"
   },
   "name": "nlx-webpack-config",
+  "main": "webpack.config.js",
   "version": "0.0.1",
   "repository": {
     "type": "git",
