@@ -4,7 +4,6 @@ import fs from 'fs';
 import HappyPack from 'happypack';
 import WriteFilePlugin from 'write-file-webpack-plugin';
 
-
 function babelLoader(NODE_ENV) {
 
   const babelrc = fs.readFileSync('./.babelrc');
@@ -64,6 +63,7 @@ if (NODE_ENV === 'development' || NODE_ENV === 'test') {
   devtool = 'eval';
 }
 
+const envConfig = {};
 if (NODE_ENV === 'development') {
   //    jsLoader.loaders.unshift('react-hot');
   mainEntry.push('webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr');

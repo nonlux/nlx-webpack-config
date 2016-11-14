@@ -10,7 +10,7 @@
   },
   "name": "nlx-webpack-config",
   "main": "lib/webpack.config.js",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/nonlux/nlx-webpack-config.git"
@@ -28,8 +28,10 @@
     "babel-loader": "^6.2.5",
     "file-loader": "^0.9.0",
     "glob": "^7.1.1",
+    "happypack": "^2.2.1",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.22.0",
+    "json-loader": "^0.5.4",
     "nlx-babel-config": "0.0.4",
     "pug": "^2.0.0-beta6",
     "pug-html-loader": "^1.0.9",
@@ -38,6 +40,7 @@
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-dev-server": "^1.16.2",
-    "webpack-hot-middleware": "^2.13.2"
+    "webpack-hot-middleware": "^2.13.2",
+    "write-file-webpack-plugin": "^3.4.2"
   }
 }
