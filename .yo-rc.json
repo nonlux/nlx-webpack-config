@@ -1,5 +1,5 @@
 {
-  "nlx-generator-prj": {
+  "generator-prj": {
     "projectName": "nlx-webpack-config",
     "isGithub": true,
     "description": "Config for webpack",

@@ -1,5 +1,5 @@
 name: wpc
-root: /home/user/src/nlx-webpack-config
+root: ~/src/nlx-webpack-config
 pre: emacs --eval "(setq server-name \"wpc\")" --daemon
 startup_window: editor
 windows:
