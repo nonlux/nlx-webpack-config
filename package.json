@@ -6,11 +6,11 @@
     "webpack": "webpack",
     "ncu": "ncu",
     "babel": "babel",
-    "babel-build": "babel config --out-dir lib"
+    "babel-build": "babel src --out-dir lib"
   },
   "name": "nlx-webpack-config",
   "main": "lib/webpack.config.js",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "repository": {
     "type": "git",
     "url": "https://github.com/nonlux/nlx-webpack-config.git"
