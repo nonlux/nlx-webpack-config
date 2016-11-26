@@ -1,8 +1,0 @@
-name: wpc
-root: ~/src/nlx-webpack-config
-pre: emacs --eval "(setq server-name \"wpc\")" --daemon
-startup_window: editor
-windows:
-  - none: ''
-  - editor: emacsclient -s wpc ./
-  - zsh: ''

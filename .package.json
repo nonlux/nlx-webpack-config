@@ -1,0 +1,22 @@
+{
+  "devDependencies": [
+    "babel-loader",
+    "file-loader",
+    "glob",
+    "happypack",
+    "html-loader",
+    "html-webpack-plugin",
+    "json-loader",
+    "raw-loader",
+    "webpack",
+    "webpack-dev-middleware",
+    "webpack-dev-server",
+    "webpack-hot-middleware",
+    "write-file-webpack-plugin"
+  ],
+  "pug": [
+    "pug",
+    "pug-html-loader",
+    "pug-loader"
+  ]
+}

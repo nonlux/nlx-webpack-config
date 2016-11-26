@@ -4,9 +4,26 @@ import fs from 'fs';
 import HappyPack from 'happypack';
 import WriteFilePlugin from 'write-file-webpack-plugin';
 
-function babelLoader(NODE_ENV) {
 
-  const babelrc = fs.readFileSync('./.babelrc');
+const NODE_ENV = 'development';
+let PWD = process.env.PWD;
+
+function detectRoot(dir) {
+  try {
+    fs.accessSync(path.join(dir,'package.json'));
+    return dir;
+  }
+  catch (error) {
+    return detectRoot(path.join(dir,'..'));
+  }
+}
+
+PWD = detectRoot(PWD);
+
+
+
+function babelLoader() {
+  const babelrc = fs.readFileSync(`${PWD}/.babelrc`);
   let babelrcObject = {};
 
   try {
@@ -31,10 +48,6 @@ function babelLoader(NODE_ENV) {
 
   return ['babel', JSON.stringify(babelLoaderQuery)].join('?');
 }
-
-const NODE_ENV  = "development";
-const PWD = process.env.PWD;
-
 const jsLoader = {
   test: /\.js$/,
   exclude: /node_modules/,
@@ -83,6 +96,7 @@ if (NODE_ENV === 'development') {
 
 const modulesDirectories = [
   'src',
+  'src/common',
   'node_modules'
 ];
 

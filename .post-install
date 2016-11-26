@@ -1,0 +1,2 @@
+#!/bin/bash
+ln  $MODULE_PATH/webpack.config.js  $DEST_PATH/webpack.config.js
