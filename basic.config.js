@@ -3,24 +3,22 @@ import webpack from 'webpack';
 import fs from 'fs';
 import HappyPack from 'happypack';
 import WriteFilePlugin from 'write-file-webpack-plugin';
-
+import CopyPlugin from 'copy-webpack-plugin';
+import CleanPlugin from 'clean-webpack-plugin';
+import NpmInstallPlugin from 'npm-install-webpack-plugin';
 
 const NODE_ENV = 'development';
 let PWD = process.env.PWD;
 
 function detectRoot(dir) {
   try {
-    fs.accessSync(path.join(dir,'package.json'));
+    fs.accessSync(path.join(dir, 'package.json'));
     return dir;
-  }
-  catch (error) {
-    return detectRoot(path.join(dir,'..'));
+  } catch (error) {
+    return detectRoot(path.join(dir, '..'));
   }
 }
-
 PWD = detectRoot(PWD);
-
-
 
 function babelLoader() {
   const babelrc = fs.readFileSync(`${PWD}/.babelrc`);
@@ -59,16 +57,28 @@ let devtool = 'inline-source-map';
 const mainEntry = ['./src/index.js'];
 const insDevelopment = NODE_ENV === 'development';
 
-const BASE_DIR =  path.resolve(PWD);
+const BASE_DIR = path.resolve(PWD);
 const BUILD_DIR = path.resolve(BASE_DIR, 'dist/');
+const STATIC_DIR = path.resolve(BASE_DIR, 'static/');
 
+const CopyStatic = { from: STATIC_DIR, to: BUILD_DIR };
+const CopyBootstrap = {
+  from: path.resolve(BASE_DIR, 'bower_components/bootstrap/dist/css'),
+  to: path.resolve(BUILD_DIR, 'css')
+};
 const plugins = [
+  new CleanPlugin([BUILD_DIR]),
   new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.NoErrorsPlugin(),
   new webpack.DefinePlugin({
     __DEVELOPMENT__: insDevelopment,
   }),
   new webpack.IgnorePlugin(/^app-module-path.*/),
+  new CopyPlugin([
+    CopyStatic,
+    CopyBootstrap,
+    ]),
+  new NpmInstallPlugin(),
 ];
 
 jsLoader.loaders.push(babelLoader(NODE_ENV));
@@ -76,10 +86,11 @@ if (NODE_ENV === 'development' || NODE_ENV === 'test') {
   devtool = 'eval';
 }
 
+const PORT = 8080;
 const envConfig = {};
 if (NODE_ENV === 'development') {
   //    jsLoader.loaders.unshift('react-hot');
-  mainEntry.push('webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr');
+  // mainEntry.push(`webpack-hot-middleware/client?path=http://localhost:${PORT}/__webpack_hmr`);
   plugins.push(new webpack.HotModuleReplacementPlugin());
   plugins.push(new HappyPack({
     loaders: jsLoader.loaders,
@@ -91,7 +102,9 @@ if (NODE_ENV === 'development') {
   jsLoader.loaders = ['happypack/loader'];
   envConfig.devServer = {
     outputPath: BUILD_DIR,
-  }
+    contentBase: BUILD_DIR,
+    hot: true
+  };
 }
 
 const modulesDirectories = [
@@ -130,4 +143,5 @@ const config = {
   plugins
 };
 
+console.log(config);
 export default config;

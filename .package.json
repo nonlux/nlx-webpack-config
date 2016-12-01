@@ -12,6 +12,9 @@
     "webpack-dev-middleware",
     "webpack-dev-server",
     "webpack-hot-middleware",
+    "copy-webpack-plugin",
+    "clean-webpack-plugin",
+    "npm-install-webpack-plugin",
     "write-file-webpack-plugin"
   ],
   "pug": [
